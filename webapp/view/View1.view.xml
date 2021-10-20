@@ -1,17 +1,43 @@
-<mvc:View
+<mvc:View 
     controllerName="logaligroup.front.controller.View1"
-    xmlns:mvc="sap.ui.core.mvc"
-    displayBlock="true"
     xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    displayBlock="true"
 >
 	<Shell id="shell">
 		<App id="app">
 			<pages>
 				<Page id="page" title="{i18n>title}">
 					<content>
-                        <VBox id="formCointainerPersonal">
-                        
+                        <VBox id="formCointainerPersonal" class="sapUiSmallMargin">
+                            <f:SimpleForm id="simpleFormPersonal"
+                                          editable="true"
+                                          layout="ColumnLayout"
+                                          columnsM="2"
+                                          columnsL="2"
+                                          columnsXL="2">
+                                <f:content>
+                                    <core:Title text="Information" />
+                                    <core:Title text="Contact" />
+                                </f:content>
+                            </f:SimpleForm>
                         </VBox>    
+                        <VBox id="formContainerEmployment" class="sapUiSmallMargin">
+
+                            <f:SimpleForm id="simpleFormEmployment"
+                                          editable="true"
+                                          layout="ColumnLayout"
+                                          columnsM="2"
+                                          columnsL="2"
+                                          columnsXL="2">
+                                <f:content>
+                                    <core:Title text="Position" />
+                                    <core:Title text="Rating" />
+                                </f:content>
+                            </f:SimpleForm>
+                        </VBox>
                     </content>
 				</Page>
 			</pages>
