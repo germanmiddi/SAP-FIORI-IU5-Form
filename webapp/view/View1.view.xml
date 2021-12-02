@@ -20,7 +20,41 @@
                                           columnsXL="2">
                                 <f:content>
                                     <core:Title text="Information" />
+                                        <Label text="Name" />
+                                        <Input required="true" change="onChange" value="{ path : 'name',
+                                                                                          type: 'sap.ui.model.type.String' }"/>
+                                        <Label text="Street/No." />
+                                        <!-- El Value del input tambien puede ir solo la ruta del modelo -->
+                                        <Input value="{street/name}"/> 
+                                        
+                                        <Input value="{street/number}">
+                                            <layoutData>
+                                                <f:ColumnElementData cellsSmall="3" cellsLarge="2" />
+                                            </layoutData>  
+                                        </Input>
+
+                                        <Label text="ZIP Code/City" />
+                                        <Input value="{ path: 'zip/code',
+                                                        type: 'sap.ui.model.type.Integer'}">
+                                            <layoutData>
+                                                <f:ColumnElementData cellsSmall="3" cellsLarge="2"/>
+                                            </layoutData>
+                                        </Input>
+
                                     <core:Title text="Contact" />
+                                        <Label text="Email" />
+                                        <Input value="{ path: 'email',
+                                                        type: 'sap.ui.model.type.String'}"/>
+                                        <Label text="Phone number" />
+                                        <Input value="{'phone/number'}"/>
+                                        <Input value="{'phone/time'}" > 
+                                            <layoutData>
+                                                <f:ColumnElementData cellsSmall="3" cellsLarge="2"/>
+                                            </layoutData>
+                                        </Input>
+                                        <Label text="Personal Website"/>     
+                                        <Input value="{'website'}"/>
+
                                 </f:content>
                             </f:SimpleForm>
                         </VBox>    
@@ -34,7 +68,27 @@
                                           columnsXL="2">
                                 <f:content>
                                     <core:Title text="Position" />
+                                        <Label text="Job Clasification" />
+                                        <Input value="{'jobTitle'}"/>
+                                        
+                                        <Label text="Pay Grade" />
+                                        <Input value="{'payGrade'}"/>      
+
+                                        <Label text="Unit" />
+                                        <Input value="{'unit'}"/>      
+
                                     <core:Title text="Rating" />
+
+                                        <Label text="Employee Class" />
+                                        <Input value="{'class'}"/>
+                                        
+                                        <Label text="FTE" />
+                                        <Input value="{'fte'}"/>                                        
+
+                                        <Label text="Standard Weekly Hours" />
+                                        <Input change="onChange" value="{ path : 'weeklyHours',
+                                                                          type : 'sap.ui.model.type.Integer' }"/>
+
                                 </f:content>
                             </f:SimpleForm>
                         </VBox>
