@@ -40,11 +40,24 @@
                                                 <f:ColumnElementData cellsSmall="3" cellsLarge="2"/>
                                             </layoutData>
                                         </Input>
+                                        <Input value="{zip/city}"></Input>
+                                        <Select id="country" selectedKey="{country}">
+                                            <items>
+                                                <core:Item text="England" key="EN" />
+                                                <core:Item text="Germany" key="DE" />
+                                                <core:Item text="USA" key="US" />
+                                                
+                                            </items>
+                                        </Select>
 
                                     <core:Title text="Contact" />
                                         <Label text="Email" />
                                         <Input value="{ path: 'email',
-                                                        type: 'sap.ui.model.type.String'}"/>
+                                                        type: 'sap.ui.model.type.String',
+                                                        contraints : {
+                                                            search : '^\\w+[\\-+\\]*\\@[a-zA-Z]+.[a-zA-Z]+'
+                                                        }}"/>
+
                                         <Label text="Phone number" />
                                         <Input value="{'phone/number'}"/>
                                         <Input value="{'phone/time'}" > 
@@ -87,12 +100,25 @@
 
                                         <Label text="Standard Weekly Hours" />
                                         <Input change="onChange" value="{ path : 'weeklyHours',
-                                                                          type : 'sap.ui.model.type.Integer' }"/>
+                                                                          type : 'sap.ui.model.type.Integer',
+                                                                          constrints : {
+                                                                              maximum : 40
+                                                                          } }"/>
 
                                 </f:content>
                             </f:SimpleForm>
                         </VBox>
                     </content>
+                    <footer>
+                        <OverflowToolbar>
+                            <Button id="messagePopover"
+                                    text="Messages"
+                                    press = ".handleMessagePopover" />
+                            <ToolbarSpacer />
+                            <Button text="Save" press="saveData" type="Emphasized" />        
+                            <Button text="Cancel" />        
+                        </OverflowToolbar>
+                    </footer>
 				</Page>
 			</pages>
 		</App>
