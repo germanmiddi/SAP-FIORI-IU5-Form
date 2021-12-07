@@ -9,9 +9,9 @@
 	<Shell id="shell">
 		<App id="app">
 			<pages>
-				<Page id="page" title="{i18n>title}">
+				<Page id="employeePage" title="{i18n>title}">
 					<content>
-                        <VBox id="formCointainerPersonal" class="sapUiSmallMargin">
+                        <VBox id="formCointainerPersonal" class="sapUiSmallMargin" items="{path : '/forms'}">
                             <f:SimpleForm id="simpleFormPersonal"
                                           editable="true"
                                           layout="ColumnLayout"
@@ -59,19 +59,19 @@
                                                         }}"/>
 
                                         <Label text="Phone number" />
-                                        <Input value="{'phone/number'}"/>
-                                        <Input value="{'phone/time'}" > 
+                                        <Input value="{phone/number}"/>
+                                        <Input value="{phone/time}" > 
                                             <layoutData>
                                                 <f:ColumnElementData cellsSmall="3" cellsLarge="2"/>
                                             </layoutData>
                                         </Input>
                                         <Label text="Personal Website"/>     
-                                        <Input value="{'website'}"/>
+                                        <Input value="{website}"/>
 
                                 </f:content>
                             </f:SimpleForm>
                         </VBox>    
-                        <VBox id="formContainerEmployment" class="sapUiSmallMargin">
+                        <VBox id="formContainerEmployment" class="sapUiSmallMargin" items="{/employment}">
 
                             <f:SimpleForm id="simpleFormEmployment"
                                           editable="true"
@@ -82,21 +82,21 @@
                                 <f:content>
                                     <core:Title text="Position" />
                                         <Label text="Job Clasification" />
-                                        <Input value="{'jobTitle'}"/>
+                                        <Input value="{jobTitle}"/>
                                         
                                         <Label text="Pay Grade" />
-                                        <Input value="{'payGrade'}"/>      
+                                        <Input value="{payGrade}"/>      
 
                                         <Label text="Unit" />
-                                        <Input value="{'unit'}"/>      
+                                        <Input value="{unit}"/>      
 
                                     <core:Title text="Rating" />
 
                                         <Label text="Employee Class" />
-                                        <Input value="{'class'}"/>
+                                        <Input value="{class}"/>
                                         
                                         <Label text="FTE" />
-                                        <Input value="{'fte'}"/>                                        
+                                        <Input value="{fte}"/>                                        
 
                                         <Label text="Standard Weekly Hours" />
                                         <Input change="onChange" value="{ path : 'weeklyHours',
