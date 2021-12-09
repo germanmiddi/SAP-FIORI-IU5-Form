@@ -112,6 +112,7 @@
                     <footer>
                         <OverflowToolbar>
                             <Button id="messagePopover"
+                                    icon=""
                                     text="Messages"
                                     press = ".handleMessagePopover" />
                             <ToolbarSpacer />

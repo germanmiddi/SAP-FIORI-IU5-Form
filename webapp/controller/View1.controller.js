@@ -81,9 +81,50 @@ sap.ui.define([
                 this.getView().byId("messagePopover").addDependent(this.oMP)
 
             },
-            // Capitulo 18 message popover gropup name / active tititle
-            getGroupName : function(){},
-            isPositionable : function(){}
+          
+            getGroupName : function(sControlId){
+                //Se toma el control de un elemento en el DOM
+                let oControl = Element.registry.get(sControlId);
+
+                if(oControl){
+                    let sFormSubtitle = oControl.getParent().getParent().getTitle().getText(); //Para el texto del label usar getText()
+                    let sFormTitle = oControl.getParent().getParent().getParent().getTitle();
+
+                    return sFormTitle + ", " + sFormSubtitle;
+                }
+            },
+
+            isPositionable : function(sControlId){
+                return sControlId ? true : false
+            },
+
+            //Capitulo 20 
+            mpIconFormatter: function(){
+                let sIcon
+                let aMessage = this._MessageManager.getMessageModel().loadData
+                
+                aMessage.forEach(function(sMessage){
+                    switch (sMessage.type){
+                        case "Error":
+                            sIcon = "sap-icon://message-error"
+                            break;
+                        case "Warning":
+                            sIcon = sIcon !== "sap-icon://message-error" ? "sap-icon://message-warning" : sIcon
+                            break;
+                        
+                        case "Success":
+                            sIcon = sIcon !== "sap-icon://message-error" && sIcon !== "sap-icon://message-warning" ? "sap-icon://message-succcess" : sIcon
+                            break;
+                        
+                        default:
+                            sIcon = !sIcon ? "sap-icon://message-information" : sIcon
+                            break;
+                    }
+
+                })
+
+            }
+
 		});
 	}
 );
